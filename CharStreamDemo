@@ -1,0 +1,40 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class CharStreamDemo10 {
+    public static void main(String[] args) throws IOException {
+
+        BufferedWriter bw = new BufferedWriter(
+                new FileWriter("CharStream\\aaa\\d.txt"));
+
+        //  这里打印的是 97 在码表中所对应的字母 a
+        bw.write(97);
+        bw.write("\r\n");
+
+        //  这里打印的是 97 ~ 102 在码表中所对应的字母 abcdef
+        char[] chars = {97, 98, 99, 100, 101, 102};
+        bw.write(chars);
+        bw.write("\r\n");
+
+        //  这里打印的是 chars 数组中 前四个的数字在码表中对应的字母 abcd
+        bw.write(chars, 0, 3);
+        bw.write("\r\n");
+
+        //  字符串
+        bw.write("好好学习,天天向上");
+        bw.write("\r\n");
+
+        //  字符串前 7 个字符
+        String s = "我是一个初学者";
+        bw.write(s, 0, 7);
+        bw.write("\r\n");
+
+        //  刷新文件
+        bw.flush();
+        
+        //  释放文件
+        bw.close();
+    }
+
+}
