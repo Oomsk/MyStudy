@@ -8,7 +8,6 @@ public class MyBinarySearchDemo {
         System.out.println(index);
 
     }
-
     //  方法的返回值 参数
     private static int binarySearchForIndex(int[] arr, int num) {
         int min = 0;    // 定义起始值 0
