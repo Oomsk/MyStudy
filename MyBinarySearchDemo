@@ -1,0 +1,41 @@
+public class MyBinarySearchDemo {
+    public static void main(String[] args) {
+        int[] arr  = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int num = 3;
+
+        //  定义方法所需要的参数值  arr数组 num数字
+        int index = binarySearchForIndex(arr, num);
+        System.out.println(index);
+
+    }
+
+    //  方法的返回值 参数
+    private static int binarySearchForIndex(int[] arr, int num) {
+        int min = 0;    // 定义起始值 0
+        int max = arr.length - 1;   //  定义最大索引值为数组的最大索引位置
+
+        //  当最小值 小于等于 最大值的时候 进行二分查找
+        while (min <= max) {
+
+            //  确定中间值  并判断中间值与查找值的大小是否相等
+            //  中间值为最小值加上最大值的1/2
+            int mid = (min + max) >> 1;  // >>1 等于 除以2
+
+            //  注意 是查找最大值和最小值的所在索引位置与接收的数值进行比较
+            //  如果中间值小于了 所接受的数组 那么最小值变为中间值的右移一维
+            if (num > arr[mid]) {
+                min = mid + 1;
+
+                //  如果中间的值大于了所查找的数值, 那么最大值成为中间值的右移一位
+            } else if (num < arr[mid]) {
+                max = mid - 1;
+
+                //  如果相等 则直接返回中间值的索引
+            } else {
+                return mid;
+            }
+        }
+        //  如果最小值大于了最大值  那么直接返回-1 , 提示查找无结果
+        return -1;
+    }
+}
