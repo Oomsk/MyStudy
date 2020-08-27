@@ -17,7 +17,7 @@ public class CharStreamDemo10 {
         bw.write(chars);
         bw.write("\r\n");
 
-        //  这里打印的是 chars 数组中 前四个的数字在码表中对应的字母 abcd
+        //  这里打印的是 chars 数组中 前三个的数字在码表中对应的字母 abcd
         bw.write(chars, 0, 3);
         bw.write("\r\n");
 
